@@ -16,41 +16,47 @@ class MyApp extends StatelessWidget {
           centerTitle: false,
           title: const Text('Sample App'),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              child: Text(
-                'image',
-                style: TextStyle(fontSize: 20),
+        body: ColoredBox(
+          color: Colors.red,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              const SizedBox(
+                height: 120,
               ),
-            ),
-            Container(
-              height: 105,
-              width: double.infinity,
-              decoration: const BoxDecoration(color: Colors.green),
-              child: Expanded(
-                child: ListView(
-                  children: [
-                    TextAdd(),
-                    TextAdd(),
-                    TextAdd(),
-                    TextAdd(),
-                    TextAdd(),
-                    TextAdd(),
-                    TextAdd(),
-                    TextAdd(),
-                    TextAdd(),
-                    TextAdd(),
-                    TextAdd(),
-                    TextAdd(),
-                    TextAdd(),
-                  ],
-                  scrollDirection: Axis.horizontal,
+              Expanded(
+                child: const Text(
+                  'image',
+                  style: TextStyle(fontSize: 20),
                 ),
               ),
-            ),
-          ],
+              Container(
+                height: 105,
+                width: double.infinity,
+                decoration: const BoxDecoration(color: Colors.green),
+                child: Expanded(
+                  child: ListView(
+                    children: [
+                      TextAdd(),
+                      TextAdd(),
+                      TextAdd(),
+                      TextAdd(),
+                      TextAdd(),
+                      TextAdd(),
+                      TextAdd(),
+                      TextAdd(),
+                      TextAdd(),
+                      TextAdd(),
+                      TextAdd(),
+                      TextAdd(),
+                      TextAdd(),
+                    ],
+                    scrollDirection: Axis.horizontal,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -72,7 +78,7 @@ class TextAdd extends StatelessWidget {
           child: Container(
             child: TextButton(
               onPressed: () {},
-              child: Text(
+              child: const Text(
                 '  +\nAdd',
                 style: TextStyle(
                   color: Colors.black,
