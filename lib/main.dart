@@ -10,53 +10,53 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: Scaffold(
-        backgroundColor: Colors.red[900],
-        appBar: AppBar(
-          centerTitle: false,
-          title: const Text('Sample App'),
-        ),
-        body: ColoredBox(
-          color: Colors.red,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              const SizedBox(
-                height: 120,
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: false,
+        title: const Text('Sample App'),
+      ),
+      body: ColoredBox(
+        color: Colors.red,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            const SizedBox(
+              height: 120,
+            ),
+            const Expanded(
+              child: Text(
+                'image',
+                style: TextStyle(fontSize: 20),
               ),
-              Expanded(
-                child: const Text(
-                  'image',
-                  style: TextStyle(fontSize: 20),
+            ),
+            Container(
+              height: 105,
+              width: double.infinity,
+              color: Colors.green,
+              // decoration: const BoxDecoration(color: Colors.green),
+              child: ListView.separated(
+                padding: EdgeInsets.all(17),
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => TextAdd(),
+                separatorBuilder: (context, index) => SizedBox(
+                  width: 8,
                 ),
+                itemCount: 10,
               ),
-              Container(
-                height: 105,
-                width: double.infinity,
-                decoration: const BoxDecoration(color: Colors.green),
-                child: Expanded(
-                  child: ListView(
-                    children: [
-                      TextAdd(),
-                      TextAdd(),
-                      TextAdd(),
-                      TextAdd(),
-                      TextAdd(),
-                      TextAdd(),
-                      TextAdd(),
-                      TextAdd(),
-                      TextAdd(),
-                      TextAdd(),
-                      TextAdd(),
-                      TextAdd(),
-                      TextAdd(),
-                    ],
-                    scrollDirection: Axis.horizontal,
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -68,26 +68,19 @@ class TextAdd extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.all(17),
-          height: 70,
-          width: 85,
-          color: Colors.orange,
-          child: Container(
-            child: TextButton(
-              onPressed: () {},
-              child: const Text(
-                '  +\nAdd',
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-              ),
-            ),
+    return Container(
+      height: 70,
+      width: 85,
+      color: Colors.orange,
+      child: TextButton(
+        onPressed: () {},
+        child: const Text(
+          '  +\nAdd',
+          style: TextStyle(
+            color: Colors.black,
           ),
         ),
-      ],
+      ),
     );
   }
 }
